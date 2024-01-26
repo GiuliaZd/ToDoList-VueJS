@@ -7,6 +7,7 @@
 
 <script>
 export default {
+  name: "ToDoItem",
   props: {
     label: { required: true, type: String },
     done: { default: false, type: Boolean },
