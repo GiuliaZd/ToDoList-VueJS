@@ -2,8 +2,8 @@
   <div id="app">
     <h1>To-do List</h1>
     <ul>
-      <li>
-        <ToDoItem label="My todo task" :done="true" />
+      <li v-for="item in ToDoItems" :key="item.id">
+        <ToDoItem :label="item.label" :done="item.done" />
       </li>
     </ul>
   </div>
@@ -11,9 +11,30 @@
 
 <script>
 import ToDoItem from "./components/ToDoItem.vue";
+import uniqueId from "lodash.uniqueid";
 export default {
   name: "App",
   components: { ToDoItem },
+  data() {
+    return {
+      ToDoItems: [
+        { id: uniqueId("todo-"), label: "Study VueJS", done: false },
+        { id: uniqueId("todo-"), label: "Study Javascript", done: false },
+        { id: uniqueId("todo-"), label: "Pass all the exams", done: true },
+        {
+          id: uniqueId("todo-"),
+          label: "Improve your coding skills",
+          done: true,
+        },
+        {
+          id: uniqueId("todo-"),
+          label: "Learn Typescript and React",
+          done: false,
+        },
+        { id: uniqueId("todo-"), label: "Make the project", done: false },
+      ],
+    };
+  },
 };
 </script>
 
