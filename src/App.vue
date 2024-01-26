@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <h1>To-do List</h1>
-    <ToDoItem />
+    <ul>
+      <li>
+        <ToDoItem label="My todo task" :done="true" />
+      </li>
+    </ul>
   </div>
 </template>
 
